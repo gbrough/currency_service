@@ -1,14 +1,10 @@
 from flask import Flask, jsonify, Response
 import requests
-import math
 import os
-#from dotenv import load_dotenv
-#load_dotenv()
+from dotenv import load_dotenv
+load_dotenv()
 
-
-#API_KEY = os.getenv("API_KEY")
-#API_KEY = 'RQM7GIDWT0ZU2WLU'
-API_KEY = '18b3afd0-3d85-11ec-b198-6765d070d593'
+API_KEY = os.getenv("API_KEY")
 
 app = Flask(__name__)
 
@@ -38,10 +34,10 @@ def get_rate(currency1: float, currency2: float) -> Response:
 #     - The return value should be a JSON object restating the request parameters and the converted amount.
 #     - All results should be rounded to 2 decimal points.
 
-# @app.route("/convert/<string:currency1>/<string:currency2>")
-# def get_convert(currency1: float, currency2: float) -> Response:
-#     url = 'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency={}&to_currency={}&apikey={}'.format(currency1, currency2, API_KEY)
-#     response = requests.get(url)
-#     return jsonify(response.json())
+@app.route("/convert/<string:currency1>/<string:currency2>/<string:amount>" , methods=['GET'])
+def get_convert(currency1: float, currency2: float, amount: float) -> Response:
+    url = 'https://freecurrencyapi.net/api/v2/latest?apikey={}'.format(API_KEY)
+    response = requests.get(url)
+    return jsonify({"currency1": currency1, "currency2": currency2, "amount": round(float(amount) * response.json()['data'][currency2], 2)})
 
 
