@@ -1,13 +1,16 @@
 ``` 
+Added two endpoints to the API:
+
 First endpoint
-- a GET endpoint to get a currency rate
-- Returns the conversion rate from currency1 to currency2 as a floating point number.
-- The rate should be the value of 1 unit of currency1 in currency2.
-- The return value should be a JSON object restating the request parameters and the rate.
+ 1. created an endpoint to get a currency rate, 
+ 2, Setup to return two currencies
+ 3. The base currency is a unit of one compared to the other currency
+ 4. Return in JSON format with currency 1 and currency 2, and the rate
 
 Second endpoint
-- a GET endpoint that converts a value in one currency to another
-- returns an amount in one currency, converted to an amount in another currency.
-- The return value should be a JSON object restating the request parameters and the converted amount.
-- All results should be rounded to 2 decimal points.
+1. Created another endpoint takes in two currencies and a value to be converted
+2. return a value of currency 1 converted to currency 2
+3. return in JSON format with currency 1 and currency 2, and the the converted amount
+4. Round the value to two decimal places
+
 ```
