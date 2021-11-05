@@ -1,5 +1,5 @@
 ``` 
-Added two endpoints to the API:
+Added two endpoints to the API app.py file.
 
 First endpoint
  1. created an endpoint to get a currency rate, 

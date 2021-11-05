@@ -19,7 +19,7 @@ def hello_name(name: str) -> Response:
     return jsonify({"message": "ohai {}".format(name)})
 
 
-# See Readme for endpoint 1 requirements
+# See Readme for endpoint 1 design
 @app.route("/rate/<string:currency1>/<string:currency2>" , methods=['GET'])
 def get_rate(currency1: float, currency2: float) -> Response:
     url = 'https://freecurrencyapi.net/api/v2/latest?apikey={}'.format(API_KEY)
@@ -27,7 +27,7 @@ def get_rate(currency1: float, currency2: float) -> Response:
     return jsonify({"currency1": currency1, "currency2": currency2, "rate": response.json()['data'][currency2]})
 
 
-
+# See Readme for endpoint 2 design
 @app.route("/convert/<string:currency1>/<string:currency2>/<string:amount>" , methods=['GET'])
 def get_convert(currency1: float, currency2: float, amount: float) -> Response:
     url = 'https://freecurrencyapi.net/api/v2/latest?apikey={}'.format(API_KEY)
